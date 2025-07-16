@@ -14,6 +14,10 @@ const bulletCommonProps = {
   bullets: [],
 };
 
+const monsterCommonProps = {
+  monsters: [],
+};
+
 const background = {
   box: document.querySelector(".game"),
 };

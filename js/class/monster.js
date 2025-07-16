@@ -23,8 +23,15 @@ class Monster extends Position {
     this.monsterBoxEl.style.left = this.positionX + "px";
   }
 
-  updateHp() {
+  updateHp(idx) {
     this.hpValue = Math.max(0, this.hpValue - hero.attackDamage);
     this.monsterBoxEl.children[0].innerText = this.hpValue;
+    if (this.hpValue === 0) this.dead(idx);
+  }
+
+  dead(idx) {
+    this.monsterBoxEl.classList.add("dead");
+    setTimeout(() => this.monsterBoxEl.remove(), 250);
+    monsterCommonProps.monsters.splice(idx, 1);
   }
 }
