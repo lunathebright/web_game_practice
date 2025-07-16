@@ -1,6 +1,7 @@
 .game_app {
   height: 100vh;
   overflow: hidden;
+  min-width: 800px;
 }
 
 .game_app .game {
@@ -19,6 +20,7 @@
   width: 100%;
   height: 100%;
   background-image: url("../images/bg/bg_top.png");
+  will-change: transform;
 }
 
 @keyframes hero_idle {
@@ -54,6 +56,7 @@
   left: 0;
   width: 150px;
   height: 182px;
+  will-change: transform;
 }
 
 .hero_box .hero {
@@ -68,7 +71,8 @@
   transform: rotateY(180deg);
 }
 
-.hero_box .hero.run {
+.hero_box .hero.run,
+.hero_box .hero.run.attack {
   background-image: url("../images/ninja/ninja_run.png");
 }
 
@@ -86,4 +90,31 @@
   background-size: cover;
   background-image: url("../images/hero_bullet.png");
   background-repeat: no-repeat;
+  will-change: transform;
+}
+
+@keyframes monster_run {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -2242px;
+  }
+}
+
+.monster_box {
+  position: absolute;
+  left: 700px;
+  bottom: 0px;
+  width: 280px;
+  height: 294px;
+  will-change: transform;
+}
+
+.monster_box .monster {
+  height: 100%;
+  background-image: url("../images/monster/monster_green_run.png");
+  background-size: 2242px;
+  background-repeat: no-repeat;
+  animation: monster_run 1s infinite steps(8);
 }

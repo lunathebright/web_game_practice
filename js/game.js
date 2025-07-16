@@ -41,9 +41,10 @@ const resize = () => {
   });
 };
 
-let hero;
+let hero, monster;
 const init = () => {
   hero = new Hero(".hero");
+  monster = new Monster();
   loadImage();
   keyEvents();
   resize();
