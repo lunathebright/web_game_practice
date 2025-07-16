@@ -41,8 +41,25 @@ class Bullet extends Position {
   }
 
   crashBullet() {
+    if (
+      this.position().left > monster.position().left &&
+      this.position().right < monster.position().right
+    ) {
+      bulletCommonProps.bullets.forEach((bullet, idx) => {
+        if (bullet === this) {
+          bulletCommonProps.bullets.splice(idx, 1);
+          this.el.remove();
+        }
+      });
+    }
+
     if (this.position().left > gameProps.screenW || this.position().right < 0) {
-      this.el.remove();
+      bulletCommonProps.bullets.forEach((bullet, idx) => {
+        if (bullet === this) {
+          bulletCommonProps.bullets.splice(idx, 1);
+          this.el.remove();
+        }
+      });
     }
   }
 }

@@ -1,15 +1,17 @@
-class Monster {
+class Monster extends Position {
   constructor() {
+    super();
+
     this.gameEl = document.querySelector(".game");
     this.monsterBoxEl = document.createElement("div");
     this.monsterBoxEl.className = "monster_box";
-    this.monsterEl = document.createElement("div");
-    this.monsterEl.className = "monster";
+    this.el = document.createElement("div");
+    this.el.className = "monster";
 
     this.init();
   }
   init() {
-    this.monsterBoxEl.appendChild(this.monsterEl);
+    this.monsterBoxEl.appendChild(this.el);
     this.gameEl.appendChild(this.monsterBoxEl);
   }
 }
