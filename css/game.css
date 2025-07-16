@@ -118,3 +118,14 @@
   background-repeat: no-repeat;
   animation: monster_run 1s infinite steps(8);
 }
+
+.monster_box .hp {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-100%);
+  width: 100%;
+  font-size: 110px;
+  color: white;
+  text-align: center;
+}

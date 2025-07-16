@@ -49,6 +49,7 @@ class Bullet extends Position {
         if (bullet === this) {
           bulletCommonProps.bullets.splice(idx, 1);
           this.el.remove();
+          monster.updateHp();
         }
       });
     }

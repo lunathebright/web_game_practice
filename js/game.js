@@ -44,7 +44,7 @@ const resize = () => {
 let hero, monster;
 const init = () => {
   hero = new Hero(".hero");
-  monster = new Monster();
+  monster = new Monster(500, 9000);
   loadImage();
   keyEvents();
   resize();

@@ -6,6 +6,7 @@ class Hero extends Position {
     this.moveX = 0;
     this.speed = 16;
     this.direction = "right";
+    this.attackDamage = 1000;
   }
 
   keyMotion() {
