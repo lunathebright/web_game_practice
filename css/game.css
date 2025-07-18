@@ -130,7 +130,13 @@
   top: 0;
   transform: translateY(-100%);
   width: 100%;
-  font-size: 110px;
-  color: white;
-  text-align: center;
+  height: 10px;
+  border: 1px solid black;
+}
+
+.monster_box .hp div {
+  background: red;
+  height: 100%;
+  width: 100%;
+  transition: width 0.3s ease-out;
 }

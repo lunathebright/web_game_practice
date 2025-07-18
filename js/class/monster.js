@@ -9,14 +9,16 @@ class Monster extends Position {
     this.el.className = "monster";
     this.hpEl = document.createElement("div");
     this.hpEl.className = "hp";
+    this.defaultHpValue = hp;
     this.hpValue = hp;
-    this.hpText = document.createTextNode(this.hpValue);
+    this.hpProgress = 0;
+    this.hpBar = document.createElement("div");
     this.positionX = positionX;
 
     this.init();
   }
   init() {
-    this.hpEl.appendChild(this.hpText);
+    this.hpEl.appendChild(this.hpBar);
     this.monsterBoxEl.appendChild(this.hpEl);
     this.monsterBoxEl.appendChild(this.el);
     this.gameEl.appendChild(this.monsterBoxEl);
@@ -25,7 +27,8 @@ class Monster extends Position {
 
   updateHp(idx) {
     this.hpValue = Math.max(0, this.hpValue - hero.attackDamage);
-    this.monsterBoxEl.children[0].innerText = this.hpValue;
+    this.hpProgress = (this.hpValue / this.defaultHpValue) * 100;
+    this.hpBar.style.width = `${this.hpProgress}%`;
     if (this.hpValue === 0) this.dead(idx);
   }
 
