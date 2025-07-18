@@ -14,6 +14,8 @@ class Monster extends Position {
     this.hpProgress = 0;
     this.hpBar = document.createElement("div");
     this.positionX = positionX;
+    this.moveX = 0;
+    this.speed = 10;
 
     this.init();
   }
@@ -36,5 +38,20 @@ class Monster extends Position {
     this.monsterBoxEl.classList.add("dead");
     setTimeout(() => this.monsterBoxEl.remove(), 250);
     monsterCommonProps.monsters.splice(idx, 1);
+  }
+
+  move() {
+    const monsterRightEdge =
+      this.moveX + this.positionX + this.monsterBoxEl.offsetWidth;
+    const heroOffset = hero.position().left - hero.moveX;
+
+    const isMonsterReachedLeft = monsterRightEdge + heroOffset <= 0;
+    if (isMonsterReachedLeft) {
+      this.moveX =
+        hero.moveX - this.positionX + gameProps.screenW - hero.position().left;
+    } else {
+      this.moveX -= this.speed;
+    }
+    this.monsterBoxEl.style.transform = `translateX(${this.moveX}px)`;
   }
 }

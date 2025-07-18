@@ -3,6 +3,7 @@ const renderGame = () => {
   setBackground();
 
   bulletCommonProps.bullets.forEach((bullet) => bullet.moveBullet());
+  monsterCommonProps.monsters.forEach((monster) => monster.move());
   window.requestAnimationFrame(renderGame);
 };
 
