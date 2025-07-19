@@ -140,3 +140,45 @@
   width: 100%;
   transition: width 0.3s ease-out;
 }
+
+.game_info {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 150px;
+  padding: 10px;
+}
+
+.game_info .hero_state {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+}
+
+.game_info .hero_state .hero_img {
+  width: 60px;
+  height: 60px;
+}
+
+.game_info .hero_state .hero_img img {
+  width: 100%;
+  height: 100%;
+}
+
+.game_info .hero_state .state_box {
+  width: 80%;
+}
+
+.game_info .hero_state .state_box .hero_hp {
+  width: 100%;
+  height: 10px;
+  border: 1px solid white;
+}
+
+.game_info .hero_state .state_box .hero_hp div {
+  width: 100%;
+  height: 10px;
+  background-color: red;
+  transition: width 0.3s ease-out;
+}
