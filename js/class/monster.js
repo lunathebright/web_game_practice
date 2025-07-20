@@ -16,6 +16,7 @@ class Monster extends Position {
     this.positionX = positionX;
     this.moveX = 0;
     this.speed = 10;
+    this.crashDamage = 100;
 
     this.init();
   }
@@ -53,5 +54,16 @@ class Monster extends Position {
       this.moveX -= this.speed;
     }
     this.monsterBoxEl.style.transform = `translateX(${this.moveX}px)`;
+    this.crash();
+  }
+
+  crash() {
+    let diff = 70;
+    if (
+      hero.position().right - diff > this.position().left &&
+      hero.position().left + diff < this.position().right
+    ) {
+      hero.updateHp(this.crashDamage);
+    }
   }
 }

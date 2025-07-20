@@ -7,6 +7,9 @@ class Hero extends Position {
     this.speed = 16;
     this.direction = "right";
     this.attackDamage = 1000;
+    this.hpProgress = 0;
+    this.hpValue = 10000;
+    this.hpDefaultHpValue = this.hpValue;
   }
 
   keyMotion() {
@@ -47,5 +50,15 @@ class Hero extends Position {
       width: this.el.offsetWidth,
       height: this.el.offsetHeight,
     };
+  }
+
+  updateHp(monsterDamage) {
+    this.hpValue = Math.max(0, this.hpValue - monsterDamage);
+    this.hpProgress = (this.hpValue / this.hpDefaultHpValue) * 100;
+
+    const heroHpBox = document.querySelector(
+      ".game_info .hero_state .state_box .hero_hp div"
+    );
+    heroHpBox.style.width = `${this.hpProgress}%`;
   }
 }
